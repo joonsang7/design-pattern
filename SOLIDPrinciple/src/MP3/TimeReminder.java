@@ -1,16 +1,17 @@
-package MP3;
-import java.util.Calendar;
-
-public class TimeReminder {
-	private MP3 m;
+	package MP3;
 	
-	public void reminder() {
-		Calendar cal = Calendar.getInstance();
-		m = new MP3();
-		int hour = cal.get(Calendar.HOUR_OF_DAY);
+	public class TimeReminder {
+		TimeProvider tProv; // TimeProvider 인터페이스형 변수 tProv. 
 		
-		if(hour >= 22) {
-			m.playSong();
+		public void setTimeProvider(TimeProvider tprov) {
+			this.tProv = tprov; // 테스트 스텁이나 실제 시간을 제공하는 인스턴스를 주입.( fake or real 상태 주입)
+		}
+		
+		public void reminder() {
+			
+			int hour = tProv.getTime();
+			if(hour >= 22) {
+				
+			}
 		}
 	}
-}
