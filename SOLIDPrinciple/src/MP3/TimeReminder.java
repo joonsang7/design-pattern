@@ -25,7 +25,7 @@ public class TimeReminder {
 			System.out.println("현재 시각: " + hour + "시 - 취침 시간입니다!");
 			player.playSong();
 		} else {
-			System.out.println("현재 시각: " + hour + "시 - 아직 10시가 안 됐습니다.");
+			System.out.println("현재 시각: " + hour + "시 - 아직 22시가 안 됐습니다.");
 		}
 	}
 }

@@ -10,7 +10,7 @@ public class Main {
 
 		// ── 테스트 1: FakeTimeProvider (10시) ──────────────────────────
 		System.out.println("=== [Fake] 10시 테스트 ===");
-		FakeTimeProvider fake = new FakeTimeProvider(10);
+		FakeTimeProvider fake = new FakeTimeProvider(22);
 		reminder.setTimeProvider(fake);
 		reminder.reminder();
 
@@ -21,7 +21,7 @@ public class Main {
 
 		// ── 테스트 3: RealRimeProvider (실제 시스템 시간) ───────────────
 		System.out.println("\n=== [Real] 실제 시스템 시간 테스트 ===");
-		RealRimeProvider real = new RealRimeProvider();
+		RealTimeProvider real = new RealTimeProvider();
 		reminder.setTimeProvider(real);
 		reminder.reminder();
 	}

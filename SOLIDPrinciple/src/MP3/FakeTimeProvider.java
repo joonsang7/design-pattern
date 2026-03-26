@@ -11,8 +11,7 @@ public class FakeTimeProvider implements TimeProvider {
 	
 	public FakeTimeProvider(int hours) {
 		cal = Calendar.getInstance();
-		setHours(hours);
-		
+		setHours(hours);	
 	}
 	
 	// 주어진 시간으로 시간 설정 
