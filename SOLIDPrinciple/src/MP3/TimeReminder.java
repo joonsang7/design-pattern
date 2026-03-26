@@ -1,31 +1,31 @@
-	package MP3;
-	
-	public class TimeReminder {
-		TimeProvider tProv; // TimeProvider 인터페이스형 변수 tProv. 
-		private MP3 m;
-		
+package MP3;
 
-		public void setTimeProvider(TimeProvider tprov) {
-			this.tProv = tprov; // 테스트 스텁이나 실제 시간을 제공하는 인스턴스를 주입.( fake or real 상태 주입)
-		}
-		
-		public void reminder() {
-			
-			int hour = tProv.getTime();
-			if(hour >= 22) {
-				
-			}
+// SRP (단일 책임 원칙): 시간 확인 후 알림 책임만 가짐
+// DIP (의존성 역전 원칙): 구체 클래스(MP3, RealRimeProvider)가 아닌
+//                        추상화(Playable, TimeProvider)에 의존
+public class TimeReminder {
 
-		
-		if(hour >= 22) {
-			m.playSong();
-			
-			
-		}
-		//pull 이후 else 문 추가
-		else {
-			System.out.println("10시안지남!");
+	private TimeProvider tProv; // 추상화에 의존
+	private Playable player;    // 추상화에 의존
 
+	// 생성자 주입(Constructor Injection): 필수 의존성 명시
+	public TimeReminder(Playable player) {
+		this.player = player;
+	}
+
+	// 세터 주입(Setter Injection): 런타임에 Real/Fake 교체 가능
+	public void setTimeProvider(TimeProvider tProv) {
+		this.tProv = tProv;
+	}
+
+	// 현재 시간을 확인하고 22시 이후면 알림 재생
+	public void reminder() {
+		int hour = tProv.getTime();
+		if (hour >= 22) {
+			System.out.println("현재 시각: " + hour + "시 - 취침 시간입니다!");
+			player.playSong();
+		} else {
+			System.out.println("현재 시각: " + hour + "시 - 아직 10시가 안 됐습니다.");
 		}
 	}
 }
