@@ -7,6 +7,7 @@ public class Main {
 		// Playable 인터페이스 타입으로 선언 -> DIP 적용
 		Playable mp3 = new MP3();
 		TimeReminder reminder = new TimeReminder(mp3);
+		
 
 		// ── 테스트 1: FakeTimeProvider (10시) ──────────────────────────
 		System.out.println("=== [Fake] 10시 테스트 ===");
