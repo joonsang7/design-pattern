@@ -11,7 +11,7 @@ public class Main {
 
 		// ── 테스트 1: FakeTimeProvider (10시) ──────────────────────────
 		System.out.println("=== [Fake] 10시 테스트 ===");
-		FakeTimeProvider fake = new FakeTimeProvider(22);
+		FakeTimeProvider fake = new FakeTimeProvider(24);
 		reminder.setTimeProvider(fake);
 		reminder.reminder();
 
