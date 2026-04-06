@@ -1,12 +1,13 @@
 package MP3;
 
 // SRP (단일 책임 원칙): 시간 확인 후 알림 책임만 가짐
-// DIP (의존성 역전 원칙): 구체 클래스(MP3, RealRimeProvider)가 아닌
+// DIP (의존성 역전 원칙): 구체 클래스(MP3, RealTimeProvider)가 아닌
 //                        추상화(Playable, TimeProvider)에 의존
 public class TimeReminder {
 
 	private TimeProvider tProv; // 추상화에 의존
 	private Playable player;    // 추상화에 의존
+	private MP3 m;
 
 	// 생성자 주입(Constructor Injection): 필수 의존성 명시
 	public TimeReminder(Playable player) {
